@@ -1,0 +1,88 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x578ad8278790 .scope module, "wb" "wb" 2 22;
+ .timescale 0 0;
+v0x578ad828db70_0 .net "A", 0 0, v0x578ad828d6e0_0;  1 drivers
+v0x578ad828dc60_0 .net "B", 0 0, v0x578ad828d7b0_0;  1 drivers
+v0x578ad828dd70_0 .net "C", 0 0, v0x578ad828d880_0;  1 drivers
+v0x578ad828de60_0 .net "D", 0 0, v0x578ad828d980_0;  1 drivers
+v0x578ad828df50_0 .net "F", 0 0, L_0x578ad828e090;  1 drivers
+S_0x578ad8278920 .scope module, "dut" "circuit" 2 24, 2 1 0, S_0x578ad8278790;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /INPUT 1 "D";
+    .port_info 4 /OUTPUT 1 "F";
+L_0x578ad828e090 .functor NAND 1, v0x578ad828d880_0, v0x578ad828d980_0, C4<1>, C4<1>;
+v0x578ad8278b00_0 .net "A", 0 0, v0x578ad828d6e0_0;  alias, 1 drivers
+v0x578ad828d0e0_0 .net "B", 0 0, v0x578ad828d7b0_0;  alias, 1 drivers
+v0x578ad828d1a0_0 .net "C", 0 0, v0x578ad828d880_0;  alias, 1 drivers
+v0x578ad828d270_0 .net "D", 0 0, v0x578ad828d980_0;  alias, 1 drivers
+v0x578ad828d330_0 .net "F", 0 0, L_0x578ad828e090;  alias, 1 drivers
+S_0x578ad828d4e0 .scope module, "tb" "tg" 2 25, 2 8 0, S_0x578ad8278790;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "A";
+    .port_info 1 /OUTPUT 1 "B";
+    .port_info 2 /OUTPUT 1 "C";
+    .port_info 3 /OUTPUT 1 "D";
+    .port_info 4 /INPUT 1 "F";
+v0x578ad828d6e0_0 .var "A", 0 0;
+v0x578ad828d7b0_0 .var "B", 0 0;
+v0x578ad828d880_0 .var "C", 0 0;
+v0x578ad828d980_0 .var "D", 0 0;
+v0x578ad828da50_0 .net "F", 0 0, L_0x578ad828e090;  alias, 1 drivers
+    .scope S_0x578ad828d4e0;
+T_0 ;
+    %vpi_call 2 13 "$monitor", $time, " ", " ", " ", "[A, B, C] = %b%b%b%b    F = %b", v0x578ad828d6e0_0, v0x578ad828d7b0_0, v0x578ad828d880_0, v0x578ad828d980_0, v0x578ad828da50_0 {0 0 0};
+    %pushi/vec4 1, 0, 4;
+    %split/vec4 1;
+    %store/vec4 v0x578ad828d980_0, 0, 1;
+    %split/vec4 1;
+    %store/vec4 v0x578ad828d880_0, 0, 1;
+    %split/vec4 1;
+    %store/vec4 v0x578ad828d7b0_0, 0, 1;
+    %store/vec4 v0x578ad828d6e0_0, 0, 1;
+    %delay 2, 0;
+    %pushi/vec4 3, 0, 4;
+    %split/vec4 1;
+    %store/vec4 v0x578ad828d980_0, 0, 1;
+    %split/vec4 1;
+    %store/vec4 v0x578ad828d880_0, 0, 1;
+    %split/vec4 1;
+    %store/vec4 v0x578ad828d7b0_0, 0, 1;
+    %store/vec4 v0x578ad828d6e0_0, 0, 1;
+    %delay 2, 0;
+    %pushi/vec4 9, 0, 4;
+    %split/vec4 1;
+    %store/vec4 v0x578ad828d980_0, 0, 1;
+    %split/vec4 1;
+    %store/vec4 v0x578ad828d880_0, 0, 1;
+    %split/vec4 1;
+    %store/vec4 v0x578ad828d7b0_0, 0, 1;
+    %store/vec4 v0x578ad828d6e0_0, 0, 1;
+    %delay 2, 0;
+    %pushi/vec4 11, 0, 4;
+    %split/vec4 1;
+    %store/vec4 v0x578ad828d980_0, 0, 1;
+    %split/vec4 1;
+    %store/vec4 v0x578ad828d880_0, 0, 1;
+    %split/vec4 1;
+    %store/vec4 v0x578ad828d7b0_0, 0, 1;
+    %store/vec4 v0x578ad828d6e0_0, 0, 1;
+    %delay 5, 0;
+    %vpi_call 2 18 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "4211.v";
